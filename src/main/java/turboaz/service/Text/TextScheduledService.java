@@ -25,11 +25,12 @@ public class TextScheduledService {
     @Scheduled(fixedRate = 3600000)
     public void checkTextChangesAndNotify() throws IOException, InterruptedException {
         List<SearchTextChangeEntity> allTextChangeEntities = searchTextChangeRepository.findAll();
-        for (SearchTextChangeEntity entity : allTextChangeEntities)
-            SearchTextChangeDto searchTextChangeDto = SearchTextChangeDto.builder().url(entity.getUrl()).mail(entity.getMail()).build();
+ //       for (SearchTextChangeEntity entity : allTextChangeEntities)
+  //          SearchTextChangeDto searchTextChangeDto = SearchTextChangeDto.builder().url(entity.getUrl()).mail(entity.getMail()).build();
 
-        textChangeTrackerService.searchForCarTextChanges(te);
+  //      textChangeTrackerService.searchForCarTextChanges(te);
         }
     }
-}
+
+
 
