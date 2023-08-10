@@ -65,7 +65,7 @@ public class TextChangeTrackerService {
         msg.setTo(textChangeEntity.getMail());
         msg.setFrom("ellvinmehdixanov@gmail.com");
         msg.setSubject("Description deyisdi");
-        msg.setText("Kohne description:\n" + oldText + "\n\nYeni description:\n" + newText);
+        msg.setText("Kohne description:\n" + newText + "\n\nYeni description:\n" + oldText);
         javaMailSender.send(msg);
     }
 }
