@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import turboaz.entity.SearchCategoryEntity;
-import turboaz.repository.SearchRepository;
+import turboaz.repository.SearchCategoryRepository;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,14 +12,14 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SchedulerService {
-    private final SearchRepository searchRepository;
+    private final SearchCategoryRepository searchCategoryRepository;
 
     private final JsoupService jsoupService;
 
 
     @Scheduled(fixedRate = 1000)
     public void searchForCars() throws IOException, InterruptedException {
-        List<SearchCategoryEntity> all = searchRepository.findAll();
+        List<SearchCategoryEntity> all = searchCategoryRepository.findAll();
 
         for (SearchCategoryEntity e: all) {
             jsoupService.searchForCar(e.getMail(), e.getUrl());

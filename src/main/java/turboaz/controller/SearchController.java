@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import turboaz.dto.SearchCarDto;
 import turboaz.dto.SearchCategoryDto;
+import turboaz.dto.SearchTextChangeDto;
 import turboaz.service.Price.PriceJsoupService;
 import turboaz.service.SearchService;
+import turboaz.service.Text.TextChangeTrackerService;
 
 import java.io.IOException;
 
@@ -19,6 +21,7 @@ public class SearchController {
 
     private final SearchService searcService;
     private final PriceJsoupService priceJsoupService;
+    private final TextChangeTrackerService textChangeTrackerService;
 
     @PostMapping("/category")
     public void sendSearch(@RequestBody SearchCategoryDto searchCategoryDto) {
@@ -30,5 +33,12 @@ public class SearchController {
     @PostMapping("/car")
     public void sendPriceSearch(@RequestBody SearchCarDto carDto) throws IOException, InterruptedException {
         priceJsoupService.searchPriceForCar(carDto);
+    }
+
+
+    @PostMapping("/text")
+    public String startTextChangeTracking(@RequestBody SearchTextChangeDto searchTextChangeDto) throws IOException, InterruptedException {
+        textChangeTrackerService.searchForCarTextChanges(searchTextChangeDto);
+        return "Text change tracking started successfully.";
     }
 }

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import turboaz.entity.SearchCategoryEntity;
 
 @Repository
-public interface SearchRepository extends JpaRepository<SearchCategoryEntity, Long> {
+public interface SearchCategoryRepository extends JpaRepository<SearchCategoryEntity, Long> {
 }

@@ -5,9 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import turboaz.dto.SearchCarDto;
 import turboaz.entity.SearchCarEntity;
-import turboaz.entity.SearchCategoryEntity;
 import turboaz.repository.SearchCarRepository;
-import turboaz.repository.SearchRepository;
 
 import java.io.IOException;
 import java.util.List;
