@@ -1,4 +1,4 @@
-package turboaz.service;
+package turboaz.service.Category;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,7 +17,7 @@ public class SchedulerService {
     private final JsoupService jsoupService;
 
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 60000)
     public void searchForCars() throws IOException, InterruptedException {
         List<SearchCategoryEntity> all = searchCategoryRepository.findAll();
 

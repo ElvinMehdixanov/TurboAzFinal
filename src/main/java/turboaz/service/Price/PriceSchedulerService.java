@@ -16,7 +16,7 @@ public class PriceSchedulerService {
     private final SearchCarRepository searchRepository;
     private final PriceJsoupService priceJsoupService;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 60000)
     public void searchForCars() throws IOException, InterruptedException {
         List<SearchCarEntity> allSearchEntities = searchRepository.findAll();
         for (SearchCarEntity e : allSearchEntities) {

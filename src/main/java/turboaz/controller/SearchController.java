@@ -9,7 +9,7 @@ import turboaz.dto.SearchCarDto;
 import turboaz.dto.SearchCategoryDto;
 import turboaz.dto.SearchTextChangeDto;
 import turboaz.service.Price.PriceJsoupService;
-import turboaz.service.SearchService;
+import turboaz.service.Category.SearchService;
 import turboaz.service.Text.TextChangeTrackerService;
 
 import java.io.IOException;

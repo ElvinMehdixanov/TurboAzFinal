@@ -1,4 +1,4 @@
-package turboaz.service;
+package turboaz.service.Category;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,6 @@ public class JsoupService {
     private final JavaMailSender javaMailSender;
 
     public void searchForCar(String mail, String url) throws IOException, InterruptedException {
-
 
         OrderDto orderDto = new OrderDto();
 

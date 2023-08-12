@@ -1,4 +1,4 @@
-package turboaz.service;
+package turboaz.service.Category;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
