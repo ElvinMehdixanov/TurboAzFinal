@@ -13,10 +13,10 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Search_CATEGORY")
+@Table(name = "search_category")
 public class SearchCategoryEntity {
     @Id
-    @Column(name = "seach_Id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

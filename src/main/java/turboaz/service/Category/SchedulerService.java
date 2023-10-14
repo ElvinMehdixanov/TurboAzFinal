@@ -17,7 +17,7 @@ public class SchedulerService {
     private final JsoupService jsoupService;
 
 
-    @Scheduled(fixedRate = 60000)
+    @Scheduled(fixedRate = 600000)
     public void searchForCars() throws IOException, InterruptedException {
         List<SearchCategoryEntity> all = searchCategoryRepository.findAll();
 

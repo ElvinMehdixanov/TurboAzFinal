@@ -9,9 +9,9 @@ import org.jsoup.select.Elements;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import turboaz.dto.SearchCarDto;
-import turboaz.entity.SearchCarEntity;
-import turboaz.repository.SearchCarRepository;
+import turboaz.dto.SearchPriceDto;
+import turboaz.entity.SearchPriceEntity;
+import turboaz.repository.SearchPriceRepository;
 
 import java.io.IOException;
 
@@ -21,15 +21,15 @@ import java.io.IOException;
 public class PriceJsoupService {
 
     private final JavaMailSender javaMailSender;
-    private final SearchCarRepository carRepository;
+    private final SearchPriceRepository carRepository;
 
-    public void searchPriceForCar(SearchCarDto searchCarDto) throws IOException, InterruptedException {
+    public void searchPriceForCar(SearchPriceDto searchPriceDto) throws IOException, InterruptedException {
 
-        String mail = searchCarDto.getMail();
-        String url = searchCarDto.getUrl();
+        String mail = searchPriceDto.getMail();
+        String url = searchPriceDto.getUrl();
 
 
-        SearchCarEntity byMailAndUrl = carRepository.findByMailAndUrl(mail, url);
+        SearchPriceEntity byMailAndUrl = carRepository.findByMailAndUrl(mail, url);
 
 
         Document doc = Jsoup.connect(url).get();
@@ -43,13 +43,13 @@ public class PriceJsoupService {
         String priceToDb;
         if (byMailAndUrl == null) {
             priceToDb = price;
-            SearchCarEntity searchCarEntity = SearchCarEntity.builder()
+            SearchPriceEntity searchPriceEntity = SearchPriceEntity.builder()
                     .mail(mail)
                     .url(url)
                     .productPrice(price)
                     .build();
 
-            carRepository.save(searchCarEntity);
+            carRepository.save(searchPriceEntity);
 
         } else {
             priceToDb = byMailAndUrl.getProductPrice();
@@ -64,7 +64,7 @@ public class PriceJsoupService {
             msg.setTo(mail);
             msg.setFrom("ellvinmehdixanov@gmail.com");
             msg.setSubject("Avtomobilin qiymeti dustu");
-            msg.setText("Avtomobilin yeni qiymeti: " + price);
+            msg.setText("Avtomobilin yeni qiymeti: " + priceToDb);
             this.javaMailSender.send(msg);
         }
     }

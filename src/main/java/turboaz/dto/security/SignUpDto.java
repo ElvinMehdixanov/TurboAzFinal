@@ -13,7 +13,7 @@ public class SignUpDto {
     @Email(message = "Zehmet olmasa duzgun email daxil edin ")
     private String email;
 
-    @Size(min = 8, message = "parolun uzunluqu min 8 simvol olmalidir")
+    @Size(min = 8, message = "Parolun uzunluqu min 8 simvol olmalidir")
     private String password;
 
     private String role;

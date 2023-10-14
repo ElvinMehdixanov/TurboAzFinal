@@ -14,23 +14,23 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Customer_Order")
+@Table(name = "orders")
 public class Order {
     @Id
-    @Column(name = "order_Id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "customer_Name")
+    @Column(name = "customer_name")
     private String customerName;
 
-    @Column(name = "customer_Surname")
+    @Column(name = "customer_surname")
     private String customerSurname;
 
     @Column(name = "engine")
     private String engine;
 
-    @Column(name = "customer_Phone")
+    @Column(name = "customer_phone")
     private String customerPhone;
 
     @Column(name = "make")
@@ -42,7 +42,7 @@ public class Order {
     @Column(name = "odometer")
     private Integer odometer;
 
-    @Column(name = "year_Of_Car")
+    @Column(name = "year_of_car")
     private Integer year;
 
     @Column(name = "fuel")

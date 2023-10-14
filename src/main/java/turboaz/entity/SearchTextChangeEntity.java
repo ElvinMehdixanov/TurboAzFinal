@@ -13,10 +13,10 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Search_TEXT")
+@Table(name = "search_text")
 public class SearchTextChangeEntity {
     @Id
-    @Column(name = "seach_Id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

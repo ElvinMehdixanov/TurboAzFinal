@@ -1,4 +1,4 @@
-package turboaz.controller.security;
+package turboaz.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
